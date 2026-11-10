@@ -3,8 +3,8 @@
 CECS 456 Machine Learning project. We classify food photos from a 20-class subset of
 [Food-101](https://www.kaggle.com/datasets/dansbecker/food-101) and compare two models:
 
-- **CNN trained from scratch** (`1_scratch_cnn.ipynb`), by Member 1 (name)
-- **ResNet-50 transfer learning** (`2_transfer_resnet50.ipynb`), by Member 2 (name)
+- **CNN trained from scratch** (`1_scratch_cnn.ipynb`), by Trung Tin Le
+- **ResNet-50 transfer learning** (`2_transfer_resnet50.ipynb`), by Trong Nghia Le
 
 Both models use the same 20 classes, the same train/validation/test split
 (600 / 150 / 250 images per class) and the same metrics, defined in `common.py`.
