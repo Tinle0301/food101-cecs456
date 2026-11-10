@@ -264,3 +264,22 @@ def plot_top_losses(res, loaders, title, n=9):
                  "Prediction / Actual / Loss / Probability")
     fig.tight_layout(rect=[0, 0, 1, 0.95])
     return fig
+
+
+# ---------------------------------------------------------------- saving
+def download_results(name):
+    """Zip results/<name> (curves, metrics; weights excluded) and download it.
+    On Colab this saves the zip to your computer, since Colab deletes files when the session ends."""
+    import zipfile
+    out = ROOT / f"results_{name}.zip"
+    with zipfile.ZipFile(out, "w") as z:
+        for f in (RESULTS_DIR / name).iterdir():
+            if f.suffix != ".pt":
+                z.write(f, f"results/{name}/{f.name}")
+    print(f"Saved {out.name}: unzip it into the repo folder, then git add / commit / push.")
+    try:
+        from google.colab import files
+        files.download(str(out))
+    except ImportError:
+        pass
+    return out
